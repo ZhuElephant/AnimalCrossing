@@ -3,9 +3,10 @@ Option Explicit
 
 'COPY RIGHT:SW-2829-4681-6006
 'Email:z1s1w1@gmail.com
-'VERSION:   V0.01
+'VERSION:   V0.02
 'Date:      2020/4/1
 'V0.01 StevenZhu The first version
+'V0.02 StevenZhu Add mandarin language
 
 Private Date_inf As Byte
 Private Position_inf As String
@@ -145,24 +146,24 @@ Private Sub Fish_search()
     
     For j = 0 To UBound(Fish_lst)
         For i = 2 To 162 Step 2
-            If Sheet2.Cells(i, "A") = Fish_lst(j) Then
+            If Sheet3.Cells(i, "A") = Fish_lst(j) Then
             If Position_inf = "North" Then
-                Pos_time = Sheet2.Cells(i, "D")
+                Pos_time = Sheet3.Cells(i, "D")
                 Pos_OK = Judge_Pos(Pos_time)
             Else
-                Pos_time = Sheet2.Cells(i + 1, "D")
+                Pos_time = Sheet3.Cells(i + 1, "D")
                 Pos_OK = Judge_Pos(Pos_time)
             End If
 
-                'ActvHour = Sheet2.Cells(i, "E")
+                'ActvHour = Sheet3.Cells(i, "E")
                 
                 If Pos_OK Then
                     x = Fish_Row_St + j
-                    Sheet1.Cells(x, "B") = Sheet2.Cells(i, "B")
+                    Sheet1.Cells(x, "B") = Sheet3.Cells(i, "B")
                     Sheet1.Cells(x, "C") = Pos_time
-                    Sheet1.Cells(x, "D") = Sheet2.Cells(i, "E")
-                    Sheet1.Cells(x, "E") = Sheet2.Cells(i, "F")
-                    Sheet1.Cells(x, "F") = Sheet2.Cells(i, "G")
+                    Sheet1.Cells(x, "D") = Sheet3.Cells(i, "E")
+                    Sheet1.Cells(x, "E") = Sheet3.Cells(i, "F")
+                    Sheet1.Cells(x, "F") = Sheet3.Cells(i, "G")
                 End If
             End If
         Next
@@ -181,21 +182,21 @@ Private Sub Insect_search()
     
     For j = 0 To UBound(Insect_lst)
         For i = 2 To 162 Step 2
-            If Sheet2.Cells(i, "J") = Insect_lst(j) Then
+            If Sheet3.Cells(i, "J") = Insect_lst(j) Then
             If Position_inf = "North" Then
-                Pos_time = Sheet2.Cells(i, "M")
+                Pos_time = Sheet3.Cells(i, "M")
                 Pos_OK = Judge_Pos(Pos_time)
             Else
-                Pos_time = Sheet2.Cells(i + 1, "M")
+                Pos_time = Sheet3.Cells(i + 1, "M")
                 Pos_OK = Judge_Pos(Pos_time)
             End If
                 If Pos_OK Then
                 x = Insect_Row_St + j
-                Sheet1.Cells(x, "B") = Sheet2.Cells(i, "K")
+                Sheet1.Cells(x, "B") = Sheet3.Cells(i, "K")
                 Sheet1.Cells(x, "C") = Pos_time
-                Sheet1.Cells(x, "D") = Sheet2.Cells(i, "N")
-                Sheet1.Cells(x, "E") = Sheet2.Cells(i, "O")
-                Sheet1.Cells(x, "F") = Sheet2.Cells(i, "P")
+                Sheet1.Cells(x, "D") = Sheet3.Cells(i, "N")
+                Sheet1.Cells(x, "E") = Sheet3.Cells(i, "O")
+                Sheet1.Cells(x, "F") = Sheet3.Cells(i, "P")
                 End If
             End If
         Next
@@ -269,7 +270,7 @@ End Function
 Private Sub COPY_RIGHT()
     Sheet1.Range("G1") = "COPY RIGHT:SW-2829-4681-6006"
     Sheet1.Range("G2") = "Email:z1s1w1@gmail.com"
-    Sheet1.Range("G3") = "VERSION:   V0.01"
+    Sheet1.Range("G3") = "VERSION:   V0.02"
     Sheet1.Range("G4") = "Date:      2020/4/1"
 End Sub
 
